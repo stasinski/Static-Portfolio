@@ -1,0 +1,48 @@
+.tech{
+  padding: 5rem 0;
+    background-image: linear-gradient(to bottom, #f8ecde, #ede0d1, #e2d4c3, #d7c8b6, #ccbca9);
+    &__center{
+        min-height: 80vh;
+        @include maxWidth;
+    }
+    &-title {
+        font-size: 2.75rem;
+        font-weight: 900;
+        letter-spacing: -0.3rem;
+        font-style: italic;
+        text-transform: uppercase;
+        text-align: center;
+    
+        @include mediumSize() {
+          font-size: 5rem;
+        }
+        h2 {
+          -webkit-text-stroke: 3px #000;
+          color:#4f4d4b;
+          }
+    }
+    &__context{
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
+      gap: 1.5rem;
+      row-gap: 2rem;
+    }
+}
+
+.skill{
+
+  &-img{
+    min-width: 130px;
+    min-height: 130px;
+    width: 100%;
+    height: 100%;
+  }
+  &-name{
+    text-align: center;
+    color: $color-text-dark;
+    
+  }
+
+}
+

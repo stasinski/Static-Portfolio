@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,700;0,900;1,900&display=swap");
+
+
+$color-main-light:#E3F0FF;
+$color-main:#F8ECDE;
+$color-main-dark: #ccbca9;
+$color-light-black: #363636;
+$color-light-black-2:#4D4F54;
+$color-light-black-3:#656565;
+$color-white: #fafaff;
+$color-text:#f8f8f4;
+$color-text-dark:#242424;
+
+
+$mediumSize: 776px;
+$deskopSize: 992px;
+
+$max-width:1170px;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+}
+main{
+    overflow: hidden;
+}
+
+.backdrop{
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0,0,0, 0.6);
+}
+
+@mixin maxWidth{
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+
+@mixin link{
+    text-decoration: none;
+    color: $color-light-black;
+    font-family: inherit;
+    transition: color 0.3s linear;
+    &:hover{
+        color: lighten($color-light-black, 10);
+    }
+
+}
+@mixin btn{
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    transition: all 0.3s ease-out;
+}
+
+
+@mixin mediaQuery($size) {
+    @media screen and (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin mediumSize {
+    @media screen and (min-width: $mediumSize) {
+        @content;
+    }
+}
+
+@mixin deskopSize {
+    @media screen and (min-width: $deskopSize) {
+        @content;
+    }
+}
