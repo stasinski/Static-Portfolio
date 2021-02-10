@@ -56,6 +56,7 @@ const SEO = () => {
 			<meta property="og:url" content="www.dawid-stasinski.me" />
 			<meta property="og:type" content="website" />
 			<meta property="twitter:card" content="summary" />
+			<meta property="twitter:image" content={portfolio} />
 			<meta property="twitter:title" content={title} />
 			<meta property="twitter:description" content={description} />
 		</Helmet>
