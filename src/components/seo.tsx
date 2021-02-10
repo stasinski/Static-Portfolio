@@ -34,6 +34,8 @@ const SEO = () => {
 		`
 	);
 
+	console.log(portfolio[0].publicURL)
+
 	return (
 		<Helmet
 			htmlAttributes={{
@@ -52,11 +54,11 @@ const SEO = () => {
 			/>
 			<meta name="author" content="Dawid Stasinski" />
 			<meta property="og:title" content={title} />
-			<meta property="og:image" content={portfolio} />
+			<meta property="og:image" content={portfolio[0].publicURL} />
 			<meta property="og:url" content="www.dawid-stasinski.me" />
 			<meta property="og:type" content="website" />
 			<meta property="twitter:card" content="summary" />
-			<meta property="twitter:image" content={portfolio} />
+			<meta property="twitter:image" content={portfolio[0].publicURL} />
 			<meta property="twitter:title" content={title} />
 			<meta property="twitter:description" content={description} />
 		</Helmet>

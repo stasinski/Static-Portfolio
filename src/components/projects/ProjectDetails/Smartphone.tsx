@@ -1,4 +1,3 @@
-
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from "react";
 import { gsap, Power3 } from "gsap";
@@ -6,8 +5,6 @@ import Image from "gatsby-image"
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Navigation } from "swiper";
-import "swiper/swiper.scss";
-import "swiper/components/effect-fade/effect-fade.scss";
 
 SwiperCore.use([EffectFade, Navigation]);
 
