@@ -7,6 +7,12 @@ const Hero: React.FC = () => {
   let textRef = useRef<HTMLHeadingElement | null>(null);
 
   useEffect(() => {
+    if(textRef.current){
+
+      gsap.to([textRef.current],{
+        visibility:"visible"
+      })
+    }
     gsap.from([textRef.current?.children[0], textRef.current?.children[1]], {
       duration: 1.75,
       y: 50,
