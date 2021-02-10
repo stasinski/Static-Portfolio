@@ -9,8 +9,8 @@ const SEO = () => {
 		site: {
 			siteMetadata: { title, description }
 		},
-		allFile:{nodes},
-		portfolio:{nodes:portfolio}
+		allFile: { nodes },
+		portfolio: { nodes: portfolio }
 	} = useStaticQuery(
 		graphql`
 			query {
@@ -25,7 +25,7 @@ const SEO = () => {
 						publicURL
 					}
 				}
-				portfolio :allFile(filter: { relativePath: { eq: "portfolio.webp" } }) {
+				portfolio: allFile(filter: { relativePath: { eq: "portfolio.webp" } }) {
 					nodes {
 						publicURL
 					}
@@ -33,8 +33,6 @@ const SEO = () => {
 			}
 		`
 	);
-
-	console.log(portfolio[0].publicURL)
 
 	return (
 		<Helmet
@@ -57,8 +55,7 @@ const SEO = () => {
 			<meta property="og:image" content={portfolio[0].publicURL} />
 			<meta property="og:url" content="www.dawid-stasinski.me" />
 			<meta property="og:type" content="website" />
-			<meta property="twitter:card" content="summary" />
-			<meta property="twitter:image" content={portfolio[0].publicURL} />
+			<meta property="og:description" content={description} />
 			<meta property="twitter:title" content={title} />
 			<meta property="twitter:description" content={description} />
 		</Helmet>

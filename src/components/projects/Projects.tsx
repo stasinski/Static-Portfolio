@@ -24,7 +24,7 @@ const Projects: React.FC = () => {
 	));
 
 	return (
-		<section className="projects" >
+		<section className="projects">
 			<div className="projects__center" id="projects">
 				<div className="projects-title">
 					<h2>Projects</h2>
@@ -37,7 +37,10 @@ const Projects: React.FC = () => {
 
 const query = graphql`
 	{
-		allAirtable(filter: {table: {eq: "projects"}}, sort: {fields: data___id}) {
+		allAirtable(
+			filter: { table: { eq: "projects" } }
+			sort: { fields: data___id }
+		) {
 			nodes {
 				data {
 					codelink

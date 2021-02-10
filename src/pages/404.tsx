@@ -5,8 +5,8 @@ import SEO from "../components/seo";
 
 const NotFoundPage = () => (
 	<>
-	<SEO/>
-	<h3>Page not found</h3>
+		<SEO />
+		<h3>Page not found</h3>
 	</>
 );
 

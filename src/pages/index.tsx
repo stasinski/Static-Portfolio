@@ -8,11 +8,11 @@ import Skills from "../components/skills/Skills";
 
 const IndexPage: React.FC = () => (
 	<>
-		<SEO/>
-		<Hero/>
-		<Projects/>
-		<Skills/>
-		<Footer/>
+		<SEO />
+		<Hero />
+		<Projects />
+		<Skills />
+		<Footer />
 	</>
 );
 

@@ -1,25 +1,25 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
-import { gsap} from "gsap";
-import { graphql,useStaticQuery} from "gatsby";
+import { gsap } from "gsap";
+import { graphql, useStaticQuery } from "gatsby";
 
+const aboutTextFirst = "";
+const aboutTextSecond = "";
 
-const aboutTextFirst =
-	"";
-const aboutTextSecond =
-	"";
-
-    const query = graphql`
-  {
-    allAirtable(filter: {table: {eq: "about"}},, sort: {order: ASC, fields: data___id}) {
-      nodes {
-        data {
-          text
-        }
-      }
-    }
-  }
-`
+const query = graphql`
+	{
+		allAirtable(
+			filter: { table: { eq: "about" } }
+			sort: { order: ASC, fields: data___id }
+		) {
+			nodes {
+				data {
+					text
+				}
+			}
+		}
+	}
+`;
 
 const HeroPhotoDialog = () => {
 	const [showAbout, setshowAbout] = useState<boolean>(false);
@@ -29,7 +29,9 @@ const HeroPhotoDialog = () => {
 	let circle2 = useRef<HTMLHeadingElement | null>(null);
 	let btnRef = useRef<HTMLButtonElement | null>(null);
 
-    const {allAirtable:{nodes}} = useStaticQuery(query)
+	const {
+		allAirtable: { nodes }
+	} = useStaticQuery(query);
 
 	useEffect(() => {
 		let interval: any;
