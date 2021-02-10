@@ -9,7 +9,8 @@ const SEO = () => {
 		site: {
 			siteMetadata: { title, description }
 		},
-		allFile:{nodes}
+		allFile:{nodes},
+		portfolio:{nodes:portfolio}
 	} = useStaticQuery(
 		graphql`
 			query {
@@ -20,6 +21,11 @@ const SEO = () => {
 					}
 				}
 				allFile(filter: { relativePath: { eq: "logo.png" } }) {
+					nodes {
+						publicURL
+					}
+				}
+				portfolio :allFile(filter: { relativePath: { eq: "portfolio.webp" } }) {
 					nodes {
 						publicURL
 					}
@@ -46,7 +52,7 @@ const SEO = () => {
 			/>
 			<meta name="author" content="Dawid Stasinski" />
 			<meta property="og:title" content={title} />
-			<meta property="og:image" content="../images/portfolio.webp" />
+			<meta property="og:image" content={portfolio} />
 			<meta property="og:url" content="www.dawid-stasinski.me" />
 			<meta property="og:type" content="website" />
 			<meta property="twitter:card" content="summary" />
