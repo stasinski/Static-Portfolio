@@ -7,8 +7,9 @@ import { useStaticQuery, graphql } from "gatsby";
 const SEO = () => {
 	const {
 		site: {
-			siteMetadata: { title, author, description }
-		}
+			siteMetadata: { title, description }
+		},
+		allFile:{nodes}
 	} = useStaticQuery(
 		graphql`
 			query {
@@ -16,7 +17,11 @@ const SEO = () => {
 					siteMetadata {
 						title
 						description
-						author
+					}
+				}
+				allFile(filter: { relativePath: { eq: "logo.png" } }) {
+					nodes {
+						publicURL
 					}
 				}
 			}
@@ -29,41 +34,25 @@ const SEO = () => {
 				lang: "en"
 			}}
 			title={title}
-			meta={[
-				{
-					name: `description`,
-					content: description
-				},
-				{
-					property: `og:title`,
-					content: title
-				},
-				{
-					property: `og:description`,
-					content: description
-				},
-				{
-					property: `og:type`,
-					content: `website`
-				},
-				{
-					name: `twitter:card`,
-					content: `summary`
-				},
-				{
-					name: `twitter:creator`,
-					content: author
-				},
-				{
-					name: `twitter:title`,
-					content: title
-				},
-				{
-					name: `twitter:description`,
-					content: description
-				}
-			]}
-		/>
+		>
+			<link rel="icon" href={nodes[0].publicURL} type="image/x-icon" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<meta name="theme-color" content="#000000" />
+			<meta name="description" content={description} />
+			<meta name="tags" content="Dawid Stasiński,Dawid-Stasiński,Stasiński" />
+			<meta
+				name="keywords"
+				content="Dawid Stasiński,Dawid-Stasiński,Stasiński"
+			/>
+			<meta name="author" content="Dawid Stasinski" />
+			<meta property="og:title" content={title} />
+			<meta property="og:image" content="../images/portfolio.webp" />
+			<meta property="og:url" content="www.dawid-stasinski.me" />
+			<meta property="og:type" content="website" />
+			<meta property="twitter:card" content="summary" />
+			<meta property="twitter:title" content={title} />
+			<meta property="twitter:description" content={description} />
+		</Helmet>
 	);
 };
 

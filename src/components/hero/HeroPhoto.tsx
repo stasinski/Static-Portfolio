@@ -24,8 +24,6 @@ const HeroPhoto: React.FC = () => {
   const {allFile:{nodes}} = useStaticQuery(query)
   const {publicURL} = nodes[0]
 
-  console.log(publicURL)
-
   useEffect(() => {
     if (imageRef.current) {
       gsap.to(imageRef.current,{

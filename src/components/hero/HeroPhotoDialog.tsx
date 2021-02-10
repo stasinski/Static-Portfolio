@@ -1,12 +1,25 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
 import { gsap} from "gsap";
+import { graphql,useStaticQuery} from "gatsby";
 
 
 const aboutTextFirst =
-	"I am Dawid, 20. I am an aspiring Front-End Developer living in Silesia.";
+	"";
 const aboutTextSecond =
-	"My main goal as a developer is to create unique things. Check out my projects ↓";
+	"";
+
+    const query = graphql`
+  {
+    allAirtable(filter: {table: {eq: "about"}},, sort: {order: ASC, fields: data___id}) {
+      nodes {
+        data {
+          text
+        }
+      }
+    }
+  }
+`
 
 const HeroPhotoDialog = () => {
 	const [showAbout, setshowAbout] = useState<boolean>(false);
@@ -15,6 +28,8 @@ const HeroPhotoDialog = () => {
 	let circle1 = useRef<HTMLHeadingElement | null>(null);
 	let circle2 = useRef<HTMLHeadingElement | null>(null);
 	let btnRef = useRef<HTMLButtonElement | null>(null);
+
+    const {allAirtable:{nodes}} = useStaticQuery(query)
 
 	useEffect(() => {
 		let interval: any;
@@ -25,17 +40,17 @@ const HeroPhotoDialog = () => {
 				i++;
 
 				if (first) {
-					const text = aboutTextFirst.substring(0, i);
+					const text = nodes[0].data.text.substring(0, i);
 					setAboutText(text);
-					if (i === aboutTextFirst.length + 15) {
+					if (i === nodes[0].data.text.length + 15) {
 						i = 0;
 						setAboutText("");
 						first = false;
 					}
 				} else {
-					const text = aboutTextSecond.substring(0, i);
+					const text = nodes[0].data.text.substring(0, i);
 					setAboutText(text);
-					if (i === aboutTextSecond.length + 5) {
+					if (i === nodes[1].data.text.length + 5) {
 						clearInterval(interval);
 					}
 				}
