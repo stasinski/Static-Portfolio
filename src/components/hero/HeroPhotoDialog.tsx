@@ -3,9 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { graphql, useStaticQuery } from "gatsby";
 
-const aboutTextFirst = "";
-const aboutTextSecond = "";
-
 const query = graphql`
 	{
 		allAirtable(
@@ -50,7 +47,7 @@ const HeroPhotoDialog = () => {
 						first = false;
 					}
 				} else {
-					const text = nodes[0].data.text.substring(0, i);
+					const text = nodes[1].data.text.substring(0, i);
 					setAboutText(text);
 					if (i === nodes[1].data.text.length + 5) {
 						clearInterval(interval);
