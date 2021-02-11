@@ -1,1 +1,1 @@
-Personal Portfolio moved from react to gatsby
+Personal portfolio, created in Gatsby
