@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
 
 					<div className="footer-right-links">
 						<a
-							href="https://github.com/StasinskiPL"
+							href="https://github.com/stasinski"
 							aria-label="Github"
 							target="blank"
 						>
