@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import * as React from "react";
+import React from "react";
 import Footer from "../components/Footer";
 import Hero from "../components/hero/Hero";
 import Projects from "../components/projects/Projects";
