@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
 			description: data.description,
 			link: data.sitelink,
 			githubLink: data.codelink,
-			image: data.mainimage.localFiles[0].childImageSharp.fluid,
+			image: data.mainimage.localFiles[0].childImageSharp.gatsbyImageData,
 			detailsImages: data.images.localFiles
 		};
 	});
@@ -35,40 +35,32 @@ const Projects: React.FC = () => {
 	);
 };
 
-const query = graphql`
-	{
-		allAirtable(
-			filter: { table: { eq: "projects" } }
-			sort: { fields: data___id }
-		) {
-			nodes {
-				data {
-					codelink
-					description
-					title
-					sitelink
-					images {
-						localFiles {
-							childImageSharp {
-								fluid {
-									...GatsbyImageSharpFluid
-								}
-							}
-						}
-					}
-					mainimage {
-						localFiles {
-							childImageSharp {
-								fluid {
-									...GatsbyImageSharpFluid
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+const query = graphql`{
+  allAirtable(filter: {table: {eq: "projects"}}, sort: {fields: data___id}) {
+    nodes {
+      data {
+        codelink
+        description
+        title
+        sitelink
+        images {
+          localFiles {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
+            }
+          }
+        }
+        mainimage {
+          localFiles {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
+            }
+          }
+        }
+      }
+    }
+  }
+}
 `;
 
 export default Projects;

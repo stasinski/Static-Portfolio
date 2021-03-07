@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from "react";
 import { gsap, Power3 } from "gsap";
-import Image from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Navigation } from "swiper";
@@ -9,7 +9,7 @@ import SwiperCore, { EffectFade, Navigation } from "swiper";
 SwiperCore.use([EffectFade, Navigation]);
 
 interface Props {
-	images: DetailsImages;
+	images: any[];
 }
 
 const Smartphone: React.FC<Props> = ({ images }) => {
@@ -35,9 +35,9 @@ const Smartphone: React.FC<Props> = ({ images }) => {
 	const renderSlides = images.map((image, index) => {
 		return (
 			<SwiperSlide key={index}>
-				<Image
+				<GatsbyImage
+					image={image}
 					loading="lazy"
-					fluid={image.childImageSharp.fluid}
 					className="smartphone-img"
 					alt="projectImage"
 				/>

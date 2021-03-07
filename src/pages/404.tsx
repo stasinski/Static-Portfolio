@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
-import * as React from "react";
-
 import SEO from "../components/seo";
+import React from "react";
 
-const NotFoundPage = () => (
+const NotFoundPage: React.FC = () => (
 	<>
 		<SEO />
 		<h3>Page not found</h3>
