@@ -11,6 +11,7 @@ module.exports = {
 	plugins: [
 		`gatsby-plugin-eslint`,
 		`gatsby-plugin-sass`,
+		`gatsby-plugin-image`,
 		`gatsby-plugin-react-helmet`,
 		{
 			resolve: `gatsby-source-filesystem`,
@@ -36,7 +37,7 @@ module.exports = {
 					{
 						baseId: process.env.GATSBY_AIRTABLE_BASE_ID,
 						tableName: "projects",
-						mapping:{images:"fileNode",mainimage:"fileNode"},
+						mapping: { images: "fileNode", mainimage: "fileNode" }
 					}
 				]
 			}
@@ -56,6 +57,6 @@ module.exports = {
 			}
 		},
 		`gatsby-plugin-offline`,
-		`gatsby-plugin-typescript`,
+		`gatsby-plugin-typescript`
 	]
 };
