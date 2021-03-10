@@ -22,13 +22,13 @@ const Smartphone: React.FC<Props> = ({ images }) => {
 			delay: 0.5,
 			opacity: 0,
 			y: -50,
-			ease: Power3.easeInOut
+			ease: Power3.easeInOut,
 		});
 		gsap.to([next.current, prev.current], {
 			opacity: 1,
 			delay: 0.5,
 			duration: 2,
-			ease: Power3.easeInOut
+			ease: Power3.easeInOut,
 		});
 	});
 
@@ -36,7 +36,7 @@ const Smartphone: React.FC<Props> = ({ images }) => {
 		return (
 			<SwiperSlide key={index}>
 				<GatsbyImage
-					image={image}
+					image={image.childImageSharp.gatsbyImageData}
 					loading="lazy"
 					className="smartphone-img"
 					alt="projectImage"
@@ -57,7 +57,7 @@ const Smartphone: React.FC<Props> = ({ images }) => {
 						loop={true}
 						navigation={{
 							nextEl: ".smartphone-next",
-							prevEl: ".smartphone-prev"
+							prevEl: ".smartphone-prev",
 						}}
 					/>
 				</div>
