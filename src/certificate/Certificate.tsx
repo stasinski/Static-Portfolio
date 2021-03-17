@@ -3,11 +3,11 @@ import React from "react";
 import Image from "gatsby-image";
 
 interface Props {
-	image: any;
+	data: any;
 }
 
-const Certificate: React.FC<Props> = ({ image }) => {
-	const { fluid } = image.childImageSharp;
+const Certificate: React.FC<Props> = ({ data }) => {
+	const { fluid } = data.data.image.localFiles[0].childImageSharp;
 	return (
 		<div>
 			<Image fluid={fluid} className="certificate-img" />

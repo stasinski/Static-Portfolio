@@ -36,7 +36,12 @@ module.exports = {
 					{
 						baseId: process.env.GATSBY_AIRTABLE_BASE_ID,
 						tableName: "projects",
-						mapping:{images:"fileNode",mainimage:"fileNode"},
+						mapping: { images: "fileNode", mainimage: "fileNode" }
+					},
+					{
+						baseId: process.env.GATSBY_AIRTABLE_BASE_ID,
+						tableName: "certificates",
+						mapping: { image: "fileNode" }
 					}
 				]
 			}
@@ -56,6 +61,6 @@ module.exports = {
 			}
 		},
 		`gatsby-plugin-offline`,
-		`gatsby-plugin-typescript`,
+		`gatsby-plugin-typescript`
 	]
 };

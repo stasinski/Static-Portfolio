@@ -10,7 +10,7 @@ interface Props {
 
 const Certificates: React.FC<Props> = ({ data }) => {
 	const {
-		allFile: { nodes }
+		allAirtable: { nodes }
 	} = data;
 	return (
 		<>
@@ -21,7 +21,7 @@ const Certificates: React.FC<Props> = ({ data }) => {
 				</Link>
 				<div className="certificates-list">
 					{nodes.map((node: any, index: number) => (
-						<Certificate image={node} key={index} />
+						<Certificate data={node} key={index} />
 					))}
 				</div>
 			</div>
@@ -31,17 +31,18 @@ const Certificates: React.FC<Props> = ({ data }) => {
 
 export const query = graphql`
 	{
-		allFile(
-			filter: {
-				dir: {
-					eq: "C:/Users/Legion/Desktop/programowanie/gatsby-portfolio/src/images/certificates"
-				}
-			}
-		) {
+		allAirtable(filter: { table: { eq: "certificates" } }) {
 			nodes {
-				childImageSharp {
-					fluid {
-						...GatsbyImageSharpFluid
+				data {
+					name
+					image {
+						localFiles {
+							childImageSharp {
+								fluid {
+									...GatsbyImageSharpFluid
+								}
+							}
+						}
 					}
 				}
 			}
