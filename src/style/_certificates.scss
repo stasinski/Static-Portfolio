@@ -1,0 +1,19 @@
+.certificates{
+    max-width: 1000px;
+    margin: 0 auto;
+    &-nav{
+        display: block;
+        @include link();
+        padding: 0.5rem;
+        font-size: 3rem;
+        text-align: center;
+    }
+    &-list{
+        display: grid;
+        gap: 1rem;
+        @include mediumSize(){
+            grid-template-columns: 1fr 1fr;
+            
+        }
+    }
+}
