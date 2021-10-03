@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import { HiOutlineClipboardCopy } from "react-icons/hi";
 import { AiOutlineGithub } from "react-icons/ai";
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { usePopper } from "react-popper";
 
 const Footer: React.FC = () => {
@@ -77,11 +77,18 @@ const Footer: React.FC = () => {
 							<AiOutlineGithub className="footer-right-link" />
 						</a>
 						<a
-							href="https://www.facebook.com/dawid.stasinski.585"
+							href="https://www.facebook.com/stasinski01"
 							aria-label="Facebook"
 							target="blank"
 						>
 							<FaFacebook className="footer-right-link" />
+						</a>
+						<a
+							href="https://www.linkedin.com/in/dawid-stasinski/"
+							aria-label="Linkedin"
+							target="blank"
+						>
+							<FaLinkedin className="footer-right-link" />
 						</a>
 					</div>
 				</div>
