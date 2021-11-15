@@ -38,9 +38,8 @@ const HeroPhotoDialog = () => {
 				i++;
 				const text = nodes[0].data.text.substring(0, i);
 				setAboutText(text);
-				if (i === nodes[0].data.text.length + 15) {
-					i = 0;
-					setAboutText("");
+				if (i === nodes[0].data.text.length + 5) {
+					clearInterval(interval)
 				}
 			}, 60);
 		}
