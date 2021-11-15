@@ -34,24 +34,13 @@ const HeroPhotoDialog = () => {
 		let interval: any;
 		if (showAbout) {
 			let i = 0;
-			let first = true;
 			interval = setInterval(() => {
 				i++;
-
-				if (first) {
-					const text = nodes[0].data.text.substring(0, i);
-					setAboutText(text);
-					if (i === nodes[0].data.text.length + 15) {
-						i = 0;
-						setAboutText("");
-						first = false;
-					}
-				} else {
-					const text = nodes[1].data.text.substring(0, i);
-					setAboutText(text);
-					if (i === nodes[1].data.text.length + 5) {
-						clearInterval(interval);
-					}
+				const text = nodes[0].data.text.substring(0, i);
+				setAboutText(text);
+				if (i === nodes[0].data.text.length + 15) {
+					i = 0;
+					setAboutText("");
 				}
 			}, 60);
 		}
